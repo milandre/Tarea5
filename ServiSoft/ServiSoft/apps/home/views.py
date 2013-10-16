@@ -3,7 +3,8 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from ServiSoft.apps.mocel.models import producto
-from ServiSoft.apps.home.forms import ContactForm, LoginForm
+from ServiSoft.apps.mocel.models import cliente 
+from ServiSoft.apps.home.forms import ContactForm, LoginForm, LoginCliente
 from django.core.mail import EmailMultiAlternatives	# Enviamos HTML
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponseRedirect
@@ -90,4 +91,14 @@ def logout_view(request):
 	logout(request)
 	return HttpResponseRedirect('/')
 
+def loginCliente_view(request):
+	if request.method == "POST":
+		formulario = LoginCliente(request.POST)
+		if formulario.is_valid():
+			info_enviado = True
+			cedula = formulario.cleaned_data['Identificador']
+	
+	form = LoginCliente()
+	ctx = {'form':form}
+	return render_to_response('home/vista_clientes.html', ctx, context_instance=RequestContext(request))
 

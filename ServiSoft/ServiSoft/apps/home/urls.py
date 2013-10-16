@@ -9,4 +9,5 @@ urlpatterns = patterns('ServiSoft.apps.home.views',
 	url(r'^contacto/$', 'contacto_view', name='vista_contacto'),
 	url(r'^login/$', 'login_view', name='vista_login'),
 	url(r'^logout/$', 'logout_view', name='vista_logout'),
+	url(r'loginCliente/$','loginCliente_view', name= 'vista_loginCliente'),
 )
