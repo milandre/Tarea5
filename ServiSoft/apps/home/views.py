@@ -2,7 +2,7 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from ServiSoft.apps.ventas.models import producto
+from ServiSoft.apps.mocel.models import producto
 from ServiSoft.apps.home.forms import ContactForm, LoginForm
 from django.core.mail import EmailMultiAlternatives	# Enviamos HTML
 from django.contrib.auth import login, logout, authenticate
@@ -11,10 +11,13 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 def index_view(request):
-	return render_to_response('home/index.html', context_instance=RequestContext(request))
+	mensaje = " :) "
+	# Contexto
+	ctx = {'msg':mensaje}
+	return render_to_response('home/index.html', ctx, context_instance=RequestContext(request))
 
 def about_view(request):
-	mensaje = " +++ Esto es un mensaje desde mi vista +++ "
+	mensaje = " :) "
 	# Contexto
 	ctx = {'msg':mensaje}
 	return render_to_response('home/about.html', ctx, context_instance=RequestContext(request))

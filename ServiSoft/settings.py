@@ -123,7 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'ServiSoft.apps.ventas',
+    'ServiSoft.apps.mocel',
     'ServiSoft.apps.home',
     'ServiSoft.apps.webServices.wsProductos',
     # Uncomment the next line to enable admin documentation:

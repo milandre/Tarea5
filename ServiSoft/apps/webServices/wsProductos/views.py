@@ -1,7 +1,7 @@
 # Create your views here.
 
 from django.http import HttpResponse
-from ServiSoft.apps.ventas.models import producto
+from ServiSoft.apps.mocel.models import producto
 # Integramos la serializacion de los objetos
 from django.core import serializers
 

@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^', include('ServiSoft.apps.home.urls')),
-    url(r'^', include('ServiSoft.apps.ventas.urls')),
+    url(r'^', include('ServiSoft.apps.mocel.urls')),
     url(r'^', include('ServiSoft.apps.webServices.wsProductos.urls')),
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),

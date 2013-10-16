@@ -2,8 +2,8 @@
 
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from ServiSoft.apps.ventas.forms import addProductForm
-from ServiSoft.apps.ventas.models import producto
+from ServiSoft.apps.mocel.forms import addProductForm
+from ServiSoft.apps.mocel.models import producto
 from django.http import HttpResponseRedirect
 
 def add_product_view(request):
@@ -24,11 +24,11 @@ def add_product_view(request):
 				info = "Informacion con datos incorrectos"
 			form = addProductForm()
 			ctx = {'form':form, 'informacion':info}
-			return render_to_response('ventas/addProducto.html', ctx, context_instance=RequestContext(request))
+			return render_to_response('mocel/addProducto.html', ctx, context_instance=RequestContext(request))
 
 		else: # GET
 			form = addProductForm()
 			ctx = {'form':form}
-			return render_to_response('ventas/addProducto.html', ctx, context_instance=RequestContext(request))
+			return render_to_response('mocel/addProducto.html', ctx, context_instance=RequestContext(request))
 	else:
 		return HttpResponseRedirect('/')

@@ -1,0 +1,10 @@
+
+{% extends 'base.html' %}
+{% block title %} Inicio - Bienvenidos {% endblock %}
+{% block content %} 
+	{% if user.is_authenticated %}
+		<p>Bienvenido. </p>
+	{% endif %}
+	<br> * MOCEL, tu telefonía contigo. {{ msg }} *
+{% endblock %}
+
