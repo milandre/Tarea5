@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Mi cuenta MOCEL {% endblock %}
+{% block content %}
+<h1> Tus Productos </h1><br>
+{% if lista_prodClientes %}
+	{% for p in lista_prodClientes %}
+		<p>* Producto: {{p.identProducto}}, numero: {{p.numero}} plan: {{p.tipoPlan}}</p>
+
+		{% if p.tipoPlan = "prepago" %}
+			<form action="productoPreCliente/" method="POST">
+			{% csrf_token %}
+			<input type="hidden" value="{{ p.numero }}" name="num"/>	
+			<input type="submit" value="Consultar saldo y servicios disponibles."/>
+			</form>
+		{% else %}
+			<form action="productoPostCliente/" method="POST">
+			{% csrf_token %}
+			<input type="hidden" value="{{ p.numero }}" name="num"/>
+			<input type="submit" value="Consultar última factura."/>
+			</form>
+		{% endif %}
+	{% endfor %}
+{% else %}
+	<h2> No tienes productos registrados :( </h2>
+{% endif %}
+{% endblock %}

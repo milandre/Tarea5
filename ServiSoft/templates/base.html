@@ -1,0 +1,27 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} Titulo Base {% endblock %}</title>
+	{% block css %}<link rel="stylesheet" href="/media/css/estilo.css">{% endblock %}
+</head>
+<body>
+<header>
+	<img src="/media/images/cel.jpeg"/>
+	<h1>Proyecto ServiSoft MOCEL, tu telefonía contigo.</h1>
+	<nav>
+		<a href="{% url "vista_principal" %}">Inicio</a>
+		<a href="{% url "vista_about" %}">Acerca de</a>
+		<a href="{% url "vista_contacto" %}">Contáctanos</a>
+		<a href="{% url "vista_loginCliente" %}">Mi Cuenta</a>
+		<a href="/productos/page/1">Productos</a>
+		
+	</nav>
+</header>
+<section>
+	{% block content %}
+	{% endblock %}
+</section>
+</body>
+</html>

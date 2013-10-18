@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %} Administrador Mocel {% endblock %}</title>
+	{% block css %}<link rel="stylesheet" href="/media/css/estilo.css">{% endblock %}
+</head>
+<body>
+<header>
+	<img src="/media/images/cel.jpeg"/>
+	<h1>Panel de Administrador</h1>
+	<nav>
+		<a href="{% url "vista_registrarCliente" %}">Clientes</a>
+		<a href="{% url "vista_afiliaciones" %}">Afiliaciones</a>
+		<a href="{% url "vista_factura" %}">Factura</a>
+		<a href="{% url "vista_facturasAct" %}">Facturas Actuales</a>
+		<a href="{% url "vista_logout" %}">Cerrar sesión</a>
+	</nav>
+</header>
+<section>
+	{% block content %}
+    	<p>Bienvenido <b>{{ username }}</b> al Panel de Administrador, tu espacio para gestionar las actividades mas importantes de Servisoft</p>
+    	
+	{% endblock %}
+</section>
+</body>
+</html>

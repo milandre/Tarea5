@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+{% block title %} Login Cliente {% endblock %}
+{% block content %}
+<p> Introduce tu CI o RIF para consultar tu factura</p>
+<form action="." method="POST">
+	{% csrf_token %}
+	{{ informacion }}
+	{{ form.as_p }}
+	<input type="submit" value="Login">
+</form>
+{% endblock %}

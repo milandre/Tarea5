@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+{% block title %} Lista de Productos {% endblock %}
+{% block content %}
+<h1> Catalogo de Productos. </h1>
+<br>
+{% if productos %}
+	{% for p in productos %}
+		<p>* <a href='/producto/{{p.id}}/' >{{p.nombre}}</a></p>
+	{% endfor %}
+{% else %}
+	<h2>No existen productos activos en venta :( </h2>
+{% endif %}
+{% if productos %}
+	<br><br><br>
+	<a href="/productos/page/1"> << </a>
+	{% if productos.has_previous %}
+		<a href="/productos/page/{{ productos.previous_page_number }}/"> Prev </a>
+	{% else %}
+		<a href="#"> Prev </a>
+	{% endif %}
+	{% if productos.has_next %}
+		<a href="/productos/page/{{ productos.next_page_number }}/"> Next </a>
+	{% else %}
+		<a href="#"> Next </a>
+	{% endif %}
+	<a href="/productos/page/{{ productos.paginator.num_pages }}/"> >> </a>
+	<br><br><br>
+	<h4> Página {{ productos.number }} de {{ productos.paginator.num_pages }} </h4>
+{% endif %}
+{% endblock %}
